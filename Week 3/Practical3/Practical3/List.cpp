@@ -42,11 +42,10 @@ bool List::add(int index, ItemType newItem){
 
 		//If inserting in front
 		if (index == 1){
-			Node *tmpNode = firstNode->next;
 			//Set new node to point to tmpNode
-			newNode->next = tmpNode;
+			newNode->next = firstNode;
 			//Set FirstNode to point to newNode
-			firstNode->next = newNode;
+			firstNode = newNode;
 		}
 		else {
 			//Move to node just before index
