@@ -3,14 +3,7 @@
 
 using namespace std;
 
-int se(int arrayPassIn[]){
-	///int arrayPassIn[] = { 1, 5, 7, 8, 22, 34, 55, 77, 99 };
-	for (int num : arrayPassIn){
-
-	}
-}
-
-int search(int dataArray[], int arraySize, int start, int target){
+/*int search(int dataArray[], int arraySize, int start, int target){
 	//int arrayPassIn[] = { 1, 5, 7, 8, 22, 34, 55, 77, 99 };
 	start = 0;
 	for (int num : dataArray)
@@ -26,10 +19,34 @@ int search(int dataArray[], int arraySize, int start, int target){
 		}
 	}
 	return 0;
+}*/
+
+int GCD(int x, int y){
+	if (x % y != 0)
+		return GCD(y, x%y);
+	return y;
 }
 
 
 int main(){
+	int x = 8;
+	int y = 12;
+	cout << "GCD of " << x << " and " << y << " is: " << GCD(x, y) << endl;
+
+	x = 24; y = 60;
+	cout << "GCD of " << x << " and " << y << " is: " << GCD(x, y) << endl;
+
+	x = 24; y = 54;
+	cout << "GCD of " << x << " and " << y << " is: " << GCD(x, y) << endl;
+
+	x = 27; y = 41;
+	cout << "GCD of " << x << " and " << y << " is: " << GCD(x, y) << endl;
+
+
+	string aStupidArray[] = { "Banana", "Carrot" };
+	string str = "A Very Long String";
+	cout << aStupidArray[1][4] << endl;
+	/*
 	int dataArray[] = { 1, 2, 3, 4, 5 };
 
 	for (int i : dataArray)
@@ -38,7 +55,7 @@ int main(){
 	}
 
 	int arrayPassIn[] = { 1, 5, 7, 8, 22, 34, 55, 77, 99 };
-	cout << search(arrayPassIn, 9, 0, 22) << endl;
+	cout << search(arrayPassIn, 9, 0, 22) << endl;*/
 	/*Queue queue;
 	if (queue.isEmpty())
 		cout << "Queue is Empty" << endl;
