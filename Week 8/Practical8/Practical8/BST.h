@@ -13,7 +13,6 @@ class BST{
 		BinaryNode *right;	// pointer pointing to right subtree
 	};
 
-
 	// search an item in the binary search tree
 	BinaryNode* search(BinaryNode* t, ItemType target);
 
