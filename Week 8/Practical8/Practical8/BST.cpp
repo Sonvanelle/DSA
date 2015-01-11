@@ -32,6 +32,8 @@ void BST::insert(BinaryNode* &t, ItemType item){
 	if (t == NULL){
 		BinaryNode *newNode = new BinaryNode;	//Create new node
 		newNode->item = item;					//Assign item to node
+		newNode->left = NULL;
+		newNode->right = NULL;
 		t = newNode;							//Assign new node to t
 	}
 	else {
