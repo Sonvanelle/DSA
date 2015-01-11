@@ -1,5 +1,6 @@
 #include "BST.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -171,15 +172,47 @@ void BST::postorder(BinaryNode* t){
 /*Questions in Practical*/
 //Qn 1
 int BST::countNodes(BinaryNode* t){
+	int count = 0;
+	//Check if node is not null
+	if (t != NULL){
+		//Recursively sum up the count of the subtrees including root node
+		//Essentially it will be (root node (1)) + (left subtree of root recursive count) + (right subtree of root recursive count)
+		count = 1 + countNodes(t->left) + countNodes(t->right);
+	}
 
+	//Return the number of nodes total
+	return count;
 }
 
-//Qn 2
+//Qn 2 (Not sure if allowed to use max from the algorithm namespace)
 int BST::getHeight(BinaryNode* t){
-
+	//Check if node is null (based on num of nodes. if by links, return -1)
+	if (t == NULL)
+		return 0;
+	else
+		return max(getHeight(t->left), getHeight(t->right)) + 1;
 }
 
 //Qn 3
 bool BST::isBalanced(BinaryNode* t){
+	//Initialize var for height of left an right subtrees of root
+	int leftTreeHeight = 0;
+	int rightTreeHeight = 0;
 
+	//Check if node is empty
+	if (t == NULL)
+		return true;	//As node is empty -> Balanced
+
+	//Get height of both subtrees
+	leftTreeHeight = getHeight(t->left);
+	rightTreeHeight = getHeight(t->right);
+
+	//Get absolute value of the difference of the height of both subtrees
+	int diffInHeight = abs(leftTreeHeight - rightTreeHeight);
+
+	//If height difference is less or equal to 1 for the root and its respective child nodes
+	if (diffInHeight <= 1 && isBalanced(t->left) && isBalanced(t->right))
+		return true;		//It is balanced
+
+	return false;			//Not balanced
 }
